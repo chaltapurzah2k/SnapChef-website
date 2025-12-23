@@ -12,7 +12,8 @@ import FavoritesPage from './pages/FavoritesPage';
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter basename="/SnapChef-website">
+      {/* Use Vite's BASE_URL so dev uses '/' and production uses '/SnapChef-website/' */}
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
         <Layout>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
